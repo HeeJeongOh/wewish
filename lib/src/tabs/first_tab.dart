@@ -2,25 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:wewish/src/model/list_item.dart';
 
 class FirstTab extends StatefulWidget {
-  const FirstTab({Key? key}) : super(key: key);
+  final List<Item> itemList;
+  const FirstTab({Key? key, required this.itemList}) : super(key: key);
   @override
   _FirstTabState createState() => _FirstTabState();
 }
 
 class _FirstTabState extends State<FirstTab> {
-  final items = List<Item>.generate(
-      12, (i) => Item('제주도 $i', '30,000', 'www.naver.com', ''));
+  List<Item> itemList = <Item>[];
+
+  @override
+  void initState() {
+    super.initState();
+    itemList = widget.itemList;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
         // Let the ListView know how many items it needs to build.
-        itemCount: items.length,
+        itemCount: itemList.length,
         // Provide a builder function. This is where the magic happens.
         // Convert each item into a widget based on the type of item it is.
         itemBuilder: (context, index) {
-          final item = items[index];
+          final item = itemList[index];
 
           return ListTile(
             leading: IconButton(

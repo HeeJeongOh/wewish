@@ -8,11 +8,17 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      initialRoute: '/',
+      routes: {
+        'first': (context) => HomePage("first"),
+        'second': (context) => HomePage("second"),
+        'third': (context) => HomePage("third"),
+        'fourth': (context) => HomePage("fourth"),
+        'fifth': (context) => HomePage("fifth"),
+      },
     );
   }
 }
