@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'tabs/fifth_tab.dart';
 import 'tabs/first_tab.dart';
 import 'tabs/fourth_tab.dart';
 import 'tabs/second_tab.dart';
@@ -11,6 +10,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String first = "의류";
+  String second = "악세사리";
+  String third = "신발";
+  String fourth = "여행";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,35 +38,32 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   DefaultTabController(
-                      length: 5, // length of tabs
+                      length: 4, // length of tabs
                       initialIndex: 0,
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
                             Container(
-                              child: const TabBar(
-                                labelColor: Colors.redAccent,
-                                indicatorColor: Colors.white,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: TabBar(
+                                labelColor: Colors.black,
+                                indicatorColor: Colors.black,
                                 unselectedLabelColor: Colors.black,
                                 tabs: [
-                                  Tab(text: '여행'),
-                                  Tab(text: '향수'),
-                                  Tab(text: '빈노트'),
-                                  Tab(text: '빈노트'),
-                                  Tab(text: '빈노트'),
+                                  Tab(text: first),
+                                  Tab(text: second),
+                                  Tab(text: third),
+                                  Tab(text: fourth),
                                 ],
                               ),
                             ),
                             Container(
-                                height: MediaQuery.of(context).size.height *
-                                    0.765, //height of TabBarView
-
-                                decoration: const BoxDecoration(
-                                    border: Border(
-                                        top: BorderSide(
-                                            color: Colors.black,
-                                            width: 1,
-                                            style: BorderStyle.solid))),
+                                height:
+                                    MediaQuery.of(context).size.height * 0.768,
+                                color: Colors.white,
                                 child: TabBarView(children: <Widget>[
                                   Container(
                                     child: Center(child: FirstTab()),
@@ -76,10 +76,6 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Container(
                                     child: const Center(child: FourthTab()),
-                                  ),
-                                  Container(
-                                    child:
-                                        const Center(child: const FifthTab()),
                                   ),
                                 ]))
                           ])),

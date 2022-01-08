@@ -20,6 +20,7 @@ class _FirstTabState extends State<FirstTab> {
     return StreamBuilder<QuerySnapshot>(
         stream: firstStream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          itemList.clear();
           if (snapshot.hasError) {
             return Text('불러오기에 실패하였습니다.');
           }
@@ -39,6 +40,7 @@ class _FirstTabState extends State<FirstTab> {
               itemBuilder: (context, index) {
                 final item = itemList[index];
                 return ListTile(
+                  tileColor: Colors.white,
                   leading: IconButton(
                       onPressed: () {},
                       icon: Icon(Icons.check_box_outline_blank)),
