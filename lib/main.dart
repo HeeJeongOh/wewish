@@ -1,24 +1,16 @@
-// ignore_for_file: prefer_const_constructors
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
 import 'src/home.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        'first': (context) => HomePage("first"),
-        'second': (context) => HomePage("second"),
-        'third': (context) => HomePage("third"),
-        'fourth': (context) => HomePage("fourth"),
-        'fifth': (context) => HomePage("fifth"),
-      },
-    );
+    return MaterialApp(home: HomePage());
   }
 }
