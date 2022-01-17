@@ -12,7 +12,7 @@ class _FourthTabState extends State<FourthTab> {
     return Center(
         child: Column(
       mainAxisSize: MainAxisSize.min,
-      children: [Text('노트가 비어있습니다.', style: TextStyle(fontSize: 16))],
+      children: [Text('Preparing...', style: TextStyle(fontSize: 16))],
     ));
   }
 
